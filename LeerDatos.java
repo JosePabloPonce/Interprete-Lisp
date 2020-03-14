@@ -6,10 +6,10 @@ import java.util.ArrayList;
 public class LeerDatos {
 	
 	
-	ArrayList<String> Dicvalores = new ArrayList<String>();
+	private String funcion;
 	
 	//Funcion para leer archivo de texto y pasarlo a array
-	 public ArrayList<String> leerarchivoalista(String nombredearchivodetexto) throws IOException 
+	 public String leerarchivoalista(String nombredearchivodetexto) throws IOException 
 	    {
 	        FileReader leer = new FileReader(nombredearchivodetexto);         
 	        BufferedReader bufferedReader = new BufferedReader(leer);
@@ -17,14 +17,12 @@ public class LeerDatos {
 	        int i=0;
 	        
 	        while ((leerlinea = bufferedReader.readLine()) != null) {
-		    Dicvalores.add(leerlinea);		    
+		    funcion +=leerlinea;		    
 	        i++;
 	        }	         
 	        bufferedReader.close();
-	        return Dicvalores;
+	        return funcion;
 	    }  
-
-
 
 
 
