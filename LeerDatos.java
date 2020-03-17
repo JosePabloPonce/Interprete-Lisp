@@ -15,6 +15,16 @@ public class LeerDatos {
 	
 
 	
+	//set y get de la funcionseparadaparentesis
+	public ArrayList<String> getFuncionseparadaparentesis() {
+		return funcionseparadaparentesis;
+	}
+
+	public void setFuncionseparadaparentesis(ArrayList<String> funcionseparadaparentesis) {
+		this.funcionseparadaparentesis = funcionseparadaparentesis;
+	}
+	
+
 	//Funcion para leer archivo de texto y pasarlo a array
 	 public String leerarchivoalista(String nombredearchivodetexto) throws IOException 
 	    {
@@ -36,6 +46,8 @@ public class LeerDatos {
 		 
 		 
 	 }
+	 
+	 
 	 
 	 //Funcion para separar por el parametro que se le de a la funcion y guardarlos dentro de arraylist
 	 public ArrayList<String> separarparentesis(String funcion, String parametro){
