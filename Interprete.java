@@ -8,8 +8,10 @@ public class Interprete {
 		LeerDatos controlador = new LeerDatos();
 		Calculos controlador2 = new Calculos();
 		
-		controlador2.realizaroperacionesdosvariables(controlador.separarparentesis(dede, "("));
-		System.out.println(controlador2.getCalculounavariable());
+		controlador.separarparentesis(dede, "(");
+		
+		//
+		controlador2.realizaroperacionesdosvariables(controlador.getFuncionseparadaparentesis());
 		System.out.println(controlador2.realizaroperacionesunavariable(controlador2.getCalculounavariable()));
 
 		
