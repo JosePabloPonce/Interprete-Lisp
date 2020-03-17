@@ -29,26 +29,45 @@ public class LeerDatos {
 	        }	         
 	        bufferedReader.close();
 	        return funcion;
-	    }  
+	    }
 	 
+	 public void acomodarnumeros() {
+		 
+		 
+		 
+	 }
 	 
+	 //Funcion para separar por el parametro que se le de a la funcion y guardarlos dentro de arraylist
 	 public ArrayList<String> separarparentesis(String funcion, String parametro){
 		 
 		 StringTokenizer tokens = new StringTokenizer(funcion, parametro);
 		 
 		 while(tokens.hasMoreTokens()) {
-			 funcionseparadaparentesis.add(tokens.nextToken());
-		 }
-		 
+			 String tokenactual = tokens.nextToken();
 			 
-		 
-		 
-		 
-		 
+			 
+			 funcionseparadaparentesis.add(tokenactual);
+		 }
+		 //recorrer arraylist para eliminar ")"
+		 for(int i=0; i<funcionseparadaparentesis.size() ;i++) {
+			
+			 //recprremos la cadena del arraylist
+			 for (int x=0; x<funcionseparadaparentesis.get(i).length(); x++) {
+				 
+				 if (String.valueOf(funcionseparadaparentesis.get(i).charAt(x)).equals(")")) {
+					 String nuevovalor = funcionseparadaparentesis.get(i).replace(")", "");
+					 funcionseparadaparentesis.set(i, nuevovalor);
+				 }
+				 
+			 }
+		 }
+		 			 
 		return funcionseparadaparentesis;
 		 
 	 }
+	 
 
 
 
 }
+
