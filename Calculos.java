@@ -14,7 +14,6 @@ public class Calculos {
 	int contadorespacios=0;
 	int contadororden =0;
 
-
 	public ArrayList<String> getCalculounavariable() {
 		return calculounavariable;
 	}
@@ -23,10 +22,12 @@ public class Calculos {
 		this.calculounavariable = calculounavariable;
 	}
 	
-
-	
 	//funcion que recorre el arraylist y opera todos los casos donde encuentre dos numeros
 	public void realizaroperacionesdosvariables (ArrayList <String> funcion) {
+		
+		if(calculounavariable !=null) {
+			calculounavariable.clear();
+		}
 		
 		//recorremos arraylist
 		for(int i=0; i<funcion.size();i++) {
@@ -310,11 +311,18 @@ public class Calculos {
 				contadorespacios=0;
 
 			}
+			
+			
 		}
-		return resultadocalculosperaciones;	
+		if(calculounavariable !=null) {
+			calculounavariable.clear();
+		}
+	//	poner el valor de los resultados en 0 por si se ingresara una nueva 
+		double resultadocalculosperaciones2 = resultadocalculosperaciones;
+		resultadocalculosperaciones=0;
+		return resultadocalculosperaciones2;
 		
 	}
 		
 	
 }
-
