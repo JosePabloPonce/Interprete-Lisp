@@ -10,7 +10,7 @@ public class Interprete {
 		Validacion validar = new Validacion();
 		
 		//leer el archivo de texto y guardarlo en variable funcion, creada en clase leerdatos
-		controlador.leerarchivoalista("numeros.txt");
+		controlador.leerarchivoalista(System.getProperty("user.dir")+ "\\src\\numeros.txt");
 
 		if(validar.sintaxis(controlador.getFuncion()) == true) {
 			controlador.separarparentesis(controlador.getFuncion(), "(");
