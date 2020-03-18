@@ -2,22 +2,25 @@ import java.io.IOException;
 
 public class Interprete {
 	
-	public static void main(String[] args)  {
+	public static void main(String[] args) throws IOException  {
 		
-		String dede = "(+ 3 1 3 (+ 4 3(- 2 3(* 2 3 (/ 2 4)) )))";
+		
 		LeerDatos controlador = new LeerDatos();
 		Calculos controlador2 = new Calculos();
 		Validacion validar = new Validacion();
 		
-		if(validar.sintaxis(dede) == true) {
-			controlador.separarparentesis(dede, "(");
+		//leer el archivo de texto y guardarlo en variable funcion, creada en clase leerdatos
+		controlador.leerarchivoalista("numeros.txt");
+
+		if(validar.sintaxis(controlador.getFuncion()) == true) {
+			controlador.separarparentesis(controlador.getFuncion(), "(");
 			controlador2.realizaroperacionesdosvariables(controlador.getFuncionseparadaparentesis());
 			System.out.println(controlador2.realizaroperacionesunavariable(controlador2.getCalculounavariable()));
 		}
-		if(validar.sintaxis(dede) == false) {
+		if(validar.sintaxis(controlador.getFuncion()) == false) {
 			System.out.println("Error de Sintaxis");
 		}
-		
+	
 	}
 	
 
