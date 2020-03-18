@@ -13,6 +13,30 @@ public class LeerDatos {
 	//variable para almacenar funcion separada por parentesis
 	ArrayList<String> funcionseparadaparentesis = new ArrayList<String>();
 	
+	
+	//constructor
+	public LeerDatos() {
+		this.funcion = "";
+	}
+	
+	
+
+
+	//set y get de la funcion convertida en texto
+	public String getFuncion() {
+		return funcion;
+	}
+
+	public void setFuncion(String funcion) {
+		this.funcion = funcion;
+	}
+
+
+
+
+
+
+	
 
 	
 	//set y get de la funcionseparadaparentesis
@@ -26,7 +50,7 @@ public class LeerDatos {
 	
 
 	//Funcion para leer archivo de texto y pasarlo a array
-	 public String leerarchivoalista(String nombredearchivodetexto) throws IOException 
+	 public void leerarchivoalista(String nombredearchivodetexto) throws IOException 
 	    {
 	        FileReader leer = new FileReader(nombredearchivodetexto);         
 	        BufferedReader bufferedReader = new BufferedReader(leer);
@@ -34,11 +58,11 @@ public class LeerDatos {
 	        int i=0;
 	        
 	        while ((leerlinea = bufferedReader.readLine()) != null) {
-		    funcion +=leerlinea;		    
+		    funcion +=leerlinea+"\n";
 	        i++;
 	        }	         
 	        bufferedReader.close();
-	        return funcion;
+	        
 	    }
 	 
 	 public void acomodarnumeros() {
@@ -82,4 +106,3 @@ public class LeerDatos {
 
 
 }
-
