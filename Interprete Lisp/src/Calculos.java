@@ -556,6 +556,7 @@ public class Calculos {
     return resp;
   }
 
+// Metodo que realiza la funcion de set
 	public double metodoSet(Stack<String> sta) {
 
 		double val;
@@ -564,7 +565,6 @@ public class Calculos {
 			String txt = sta.pop();
 
 			if (sta.size() == 1) {
-
 				val = Double.parseDouble(sta.pop());
 				hashmap.put(txt, val);
 			}
@@ -573,5 +573,4 @@ public class Calculos {
 		}
 		return val;
 	}
-
 }
