@@ -330,229 +330,247 @@ public class Calculos {
 
 	}
 
-	// Metodo que revisa si un caracter(es) es numerico
-	    public static boolean valNum(String str) {
-	        try {
-	            double d = Double.parseDouble(str);
-	            return true;
-	        } catch (NumberFormatException nfe) {
-	            return false;
-	        }
-	    }
+// Metodo que revisa si un caracter(es) es numerico
+  public static boolean valNum(String str) {
+      try {
+          double d = Double.parseDouble(str);
+          return true;
+      } catch (NumberFormatException nfe) {
+          return false;
+      }
+  }
 
-	// Metodo que realiza la comparacion si un numero es mayor a otro
-	    public int mayorQue(Stack<String> sta) {
+// Metodo que realiza la comparacion si un numero es mayor a otro
+  public int mayorQue(Stack<String> sta) {
 
-	        double val1;
-	        double val2;
-	        int resp;
+      double val1;
+      double val2;
+      int resp;
 
-	        try {
-	            if (valNum(sta.peek())) {
-	                val1 = Double.parseDouble(sta.pop());
-	            } else {
-	                val1 = hashmap.get(sta.pop());
-	            }
+      try {
+          if (valNum(sta.peek())) {
+              val1 = Double.parseDouble(sta.pop());
+          } else {
+              val1 = hashmap.get(sta.pop());
+          }
 
-	            if (valNum(sta.peek())) {
-	                val2 = Double.parseDouble(sta.pop());
-	            } else {
-	                val2 = hashmap.get(sta.pop());
-	            }
+          if (valNum(sta.peek())) {
+              val2 = Double.parseDouble(sta.pop());
+          } else {
+              val2 = hashmap.get(sta.pop());
+          }
 
-	            if (val1 > val2) {
-	                resp = 1;
-	            } else {
-	                resp = 0;
-	            }
+          if (val1 > val2) {
+              resp = 1;
+          } else {
+              resp = 0;
+          }
 
-	        } catch (Exception e) {
-	            System.out.println("Por favor escriba sintaxis Lisp valida!");
-	        }
-	        return resp;
-	    }
+      } catch (Exception e) {
+          System.out.println("Por favor escriba sintaxis Lisp valida!");
+      }
+      return resp;
+  }
 
-	// Metodo que realiza la comparacion si un numero es menor a otro
-	    public int menorQue(Stack<String> sta) {
+// Metodo que realiza la comparacion si un numero es menor a otro
+  public int menorQue(Stack<String> sta) {
 
-	        double val1;
-	        double val2;
-	        int resp;
+      double val1;
+      double val2;
+      int resp;
 
-	        try {
-	            if (valNum(sta.peek())) {
-	                val1 = Double.parseDouble(sta.pop());
-	            } else {
-	                val1 = hashmap.get(sta.pop());
-	            }
+      try {
+          if (valNum(sta.peek())) {
+              val1 = Double.parseDouble(sta.pop());
+          } else {
+              val1 = hashmap.get(sta.pop());
+          }
 
-	            if (valNum(sta.peek())) {
-	                val2 = Double.parseDouble(sta.pop());
-	            } else {
-	                val2 = hashmap.get(sta.pop());
-	            }
+          if (valNum(sta.peek())) {
+              val2 = Double.parseDouble(sta.pop());
+          } else {
+              val2 = hashmap.get(sta.pop());
+          }
 
-	            if (val1<val2) {
-	                resp = 1;
-	            } else {
-	                resp = 0;
-	            }
+          if (val1<val2) {
+              resp = 1;
+          } else {
+              resp = 0;
+          }
 
-	        } catch (Exception e) {
-	            System.out.println("Por favor escriba sintaxis Lisp valida!");
-	        }
-	        return resp;
-	    }
+      } catch (Exception e) {
+          System.out.println("Por favor escriba sintaxis Lisp valida!");
+      }
+      return resp;
+  }
 
-	// Metodo que realiza la comparacion si un numero es igual a otro
-	    public int igualQue(Stack<String> sta) {
+// Metodo que realiza la comparacion si un numero es igual a otro
+  public int igualQue(Stack<String> sta) {
 
-	        double val1;
-	        double val2;
-	        int resp;
+      double val1;
+      double val2;
+      int resp;
 
-	        try {
-	            if (valNum(sta.peek())) {
-	                val1 = Double.parseDouble(sta.pop());
-	            } else {
-	                val1 = hashmap.get(sta.pop());
-	            }
+      try {
+          if (valNum(sta.peek())) {
+              val1 = Double.parseDouble(sta.pop());
+          } else {
+              val1 = hashmap.get(sta.pop());
+          }
 
-	            if (valNum(sta.peek())) {
-	                val2 = Double.parseDouble(sta.pop());
-	            } else {
-	                val2 = hashmap.get(sta.pop());
-	            }
+          if (valNum(sta.peek())) {
+              val2 = Double.parseDouble(sta.pop());
+          } else {
+              val2 = hashmap.get(sta.pop());
+          }
 
-	            if (val1 == val2) {
-	                resp = 1;
-	            } else {
-	                resp = 0;
-	            }
+          if (val1 == val2) {
+              resp = 1;
+          } else {
+              resp = 0;
+          }
 
-	        } catch (Exception e) {
-	            System.out.println("Por favor escriba sintaxis Lisp valida!");
-	        }
-	        return resp;
-	    }
+      } catch (Exception e) {
+          System.out.println("Por favor escriba sintaxis Lisp valida!");
+      }
+      return resp;
+  }
 
-	// Metodo que realiza la comparacion si un numero es mayor o igual a otro
-	    public int mayorOIgualQue(Stack<String> sta) {
+// Metodo que realiza la comparacion si un numero es mayor o igual a otro
+  public int mayorOIgualQue(Stack<String> sta) {
 
-	        double val1;
-	        double val2;
-	        int resp;
+      double val1;
+      double val2;
+      int resp;
 
-	        try {
-	            if (valNum(sta.peek())) {
-	                val1 = Double.parseDouble(sta.pop());
-	            } else {
-	                val1 = hashmap.get(sta.pop());
-	            }
+      try {
+          if (valNum(sta.peek())) {
+              val1 = Double.parseDouble(sta.pop());
+          } else {
+              val1 = hashmap.get(sta.pop());
+          }
 
-	            if (valNum(sta.peek())) {
-	                val2 = Double.parseDouble(sta.pop());
-	            } else {
-	                val2 = hashmap.get(sta.pop());
-	            }
+          if (valNum(sta.peek())) {
+              val2 = Double.parseDouble(sta.pop());
+          } else {
+              val2 = hashmap.get(sta.pop());
+          }
 
-	            if (val1 >= val2) {
-	                resp = 1;
-	            } else {
-	                resp = 0;
-	            }
+          if (val1 >= val2) {
+              resp = 1;
+          } else {
+              resp = 0;
+          }
 
-	        } catch (Exception e) {
-	            System.out.println("Por favor escriba sintaxis Lisp valida!");
-	        }
-	        return resp;
-	    }
+      } catch (Exception e) {
+          System.out.println("Por favor escriba sintaxis Lisp valida!");
+      }
+      return resp;
+  }
 
-	// Metodo que realiza la comparacion si un numero es menor o igual a otro
-	    public int menorOIgualQue(Stack<String> sta) {
+// Metodo que realiza la comparacion si un numero es menor o igual a otro
+  public int menorOIgualQue(Stack<String> sta) {
 
-	        double val1;
-	        double val2;
-	        int resp;
+      double val1;
+      double val2;
+      int resp;
 
-	        try {
-	            if (valNum(sta.peek())) {
-	                val1 = Double.parseDouble(sta.pop());
-	            } else {
-	                val1 = hashmap.get(sta.pop());
-	            }
+      try {
+          if (valNum(sta.peek())) {
+              val1 = Double.parseDouble(sta.pop());
+          } else {
+              val1 = hashmap.get(sta.pop());
+          }
 
-	            if (valNum(sta.peek())) {
-	                val2 = Double.parseDouble(sta.pop());
-	            } else {
-	                val2 = hashmap.get(sta.pop());
-	            }
+          if (valNum(sta.peek())) {
+              val2 = Double.parseDouble(sta.pop());
+          } else {
+              val2 = hashmap.get(sta.pop());
+          }
 
-	            if (val1 <= val2) {
-	                resp = 1;
-	            } else {
-	                resp = 0;
-	            }
+          if (val1 <= val2) {
+              resp = 1;
+          } else {
+              resp = 0;
+          }
 
-	        } catch (Exception e) {
-	            System.out.println("Por favor escriba sintaxis Lisp valida!");
-	        }
-	        return resp;
-	    }
+      } catch (Exception e) {
+          System.out.println("Por favor escriba sintaxis Lisp valida!");
+      }
+      return resp;
+  }
 
-	// Metodo que simula una condicion if
-	    public double if(Stack<String> sta) {
+// Metodo que simula una condicion if
+  public double if(Stack<String> sta) {
 
-	        double val1;
-	        double val2;
-	        double val3;
-	        double resp;
+      double val1;
+      double val2;
+      double val3;
+      double resp;
 
-	        try {
-	            val1 = Double.parseDouble(sta.pop());
+      try {
+          val1 = Double.parseDouble(sta.pop());
 
-	            if (valNum(sta.peek())) {
-	                val2 = Double.parseDouble(sta.pop());
-	            } else {
-	                val2 = hashmap.get(sta.pop());
-	            }
+          if (valNum(sta.peek())) {
+              val2 = Double.parseDouble(sta.pop());
+          } else {
+              val2 = hashmap.get(sta.pop());
+          }
 
-	            if (valNum(sta.peek())) {
-	                val3 = Double.parseDouble(sta.pop());
-	            } else {
-	                val3 = hashmap.get(sta.pop());
-	            }
+          if (valNum(sta.peek())) {
+              val3 = Double.parseDouble(sta.pop());
+          } else {
+              val3 = hashmap.get(sta.pop());
+          }
 
-	            if (val1 == 1) {
-	                resp = val2;
-	            } else {
-	                resp = val3;
-	            }
+          if (val1 == 1) {
+              resp = val2;
+          } else {
+              resp = val3;
+          }
 
-	        } catch (Exception e) {
-	            System.out.println("Por favor escriba sintaxis Lisp valida!");
-	        }
-	        return resp;
-	    }
+      } catch (Exception e) {
+          System.out.println("Por favor escriba sintaxis Lisp valida!");
+      }
+      return resp;
+  }
 
-	// Metodo que realiza el calculo de raiz cuadrada
-	    public double raizCuadrada(Stack<String> sta) {
+// Metodo que realiza el calculo de raiz cuadrada
+  public double raizCuadrada(Stack<String> sta) {
 
-	        double resp;
-	        double val;
+      double resp;
+      double val;
 
-	        try {
-	            if (valNum(sta.peek())) {
-	                val = Double.parseDouble(sta.pop());
-	            } else {
-	                val = hashmap.get(sta.pop());
-	            }
-	            resp = Math.sqrt(val);
+      try {
+          if (valNum(sta.peek())) {
+              val = Double.parseDouble(sta.pop());
+          } else {
+              val = hashmap.get(sta.pop());
+          }
+          resp = Math.sqrt(val);
 
-	        } catch (Exception e) {
-	            System.out.println("Por favor escriba sintaxis Lisp valida!");
-	        }
-	        return resp;
-	    }
+      } catch (Exception e) {
+          System.out.println("Por favor escriba sintaxis Lisp valida!");
+      }
+      return resp;
+  }
+
+	public double metodoSet(Stack<String> sta) {
+
+			double val;
+
+			try {
+					String txt = sta.pop();
+
+					if (sta.size() == 1) {
+
+							val = Double.parseDouble(sta.pop());
+							hashmap.put(txt, val);
+					}
+			} catch (Exception e) {
+					System.out.println("Por favor escriba sintaxis Lisp valida!");
+			}
+			return val;
+	}
 
 }
