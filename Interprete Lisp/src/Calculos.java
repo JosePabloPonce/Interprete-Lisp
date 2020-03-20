@@ -333,10 +333,10 @@ public class Calculos {
 // Metodo que revisa si un caracter(es) es numerico
   public static boolean valNum(String str) {
     try {
-        double d = Double.parseDouble(str);
-        return true;
+      double d = Double.parseDouble(str);
+      return true;
     } catch (NumberFormatException nfe) {
-        return false;
+      	return false;
     }
   }
 
@@ -348,23 +348,23 @@ public class Calculos {
     int resp;
 
     try {
-        if (valNum(sta.peek())) {
-            val1 = Double.parseDouble(sta.pop());
-        } else {
-            val1 = hashmap.get(sta.pop());
-        }
+      if (valNum(sta.peek())) {
+          val1 = Double.parseDouble(sta.pop());
+      } else {
+          val1 = hashmap.get(sta.pop());
+      }
 
-        if (valNum(sta.peek())) {
-            val2 = Double.parseDouble(sta.pop());
-        } else {
-            val2 = hashmap.get(sta.pop());
-        }
+      if (valNum(sta.peek())) {
+          val2 = Double.parseDouble(sta.pop());
+      } else {
+          val2 = hashmap.get(sta.pop());
+      }
 
-        if (val1 > val2) {
-            resp = 1;
-        } else {
-            resp = 0;
-        }
+      if (val1 > val2) {
+          resp = 1;
+      } else {
+          resp = 0;
+      }
 
     } catch (Exception e) {
         System.out.println("Por favor escriba sintaxis Lisp valida!");
@@ -380,23 +380,23 @@ public class Calculos {
     int resp;
 
     try {
-        if (valNum(sta.peek())) {
-            val1 = Double.parseDouble(sta.pop());
-        } else {
-            val1 = hashmap.get(sta.pop());
-        }
+    	if (valNum(sta.peek())) {
+          val1 = Double.parseDouble(sta.pop());
+      } else {
+          val1 = hashmap.get(sta.pop());
+      }
 
-        if (valNum(sta.peek())) {
-            val2 = Double.parseDouble(sta.pop());
-        } else {
-            val2 = hashmap.get(sta.pop());
-        }
+      if (valNum(sta.peek())) {
+          val2 = Double.parseDouble(sta.pop());
+      } else {
+          val2 = hashmap.get(sta.pop());
+      }
 
-        if (val1<val2) {
-            resp = 1;
-        } else {
-            resp = 0;
-        }
+      if (val1<val2) {
+          resp = 1;
+      } else {
+          resp = 0;
+      }
 
     } catch (Exception e) {
         System.out.println("Por favor escriba sintaxis Lisp valida!");
@@ -412,23 +412,23 @@ public class Calculos {
     int resp;
 
     try {
-        if (valNum(sta.peek())) {
-            val1 = Double.parseDouble(sta.pop());
-        } else {
-            val1 = hashmap.get(sta.pop());
-        }
+      if (valNum(sta.peek())) {
+          val1 = Double.parseDouble(sta.pop());
+      } else {
+          val1 = hashmap.get(sta.pop());
+      }
 
-        if (valNum(sta.peek())) {
-            val2 = Double.parseDouble(sta.pop());
-        } else {
-            val2 = hashmap.get(sta.pop());
-        }
+      if (valNum(sta.peek())) {
+          val2 = Double.parseDouble(sta.pop());
+      } else {
+          val2 = hashmap.get(sta.pop());
+      }
 
-        if (val1 >= val2) {
-            resp = 1;
-        } else {
-            resp = 0;
-        }
+      if (val1 >= val2) {
+          resp = 1;
+      } else {
+          resp = 0;
+      }
 
     } catch (Exception e) {
         System.out.println("Por favor escriba sintaxis Lisp valida!");
@@ -444,23 +444,23 @@ public class Calculos {
     int resp;
 
     try {
-        if (valNum(sta.peek())) {
-            val1 = Double.parseDouble(sta.pop());
-        } else {
-            val1 = hashmap.get(sta.pop());
-        }
+      if (valNum(sta.peek())) {
+          val1 = Double.parseDouble(sta.pop());
+      } else {
+          val1 = hashmap.get(sta.pop());
+      }
 
-        if (valNum(sta.peek())) {
-            val2 = Double.parseDouble(sta.pop());
-        } else {
-            val2 = hashmap.get(sta.pop());
-        }
+      if (valNum(sta.peek())) {
+          val2 = Double.parseDouble(sta.pop());
+      } else {
+          val2 = hashmap.get(sta.pop());
+      }
 
-        if (val1 <= val2) {
-            resp = 1;
-        } else {
-            resp = 0;
-        }
+      if (val1 <= val2) {
+          resp = 1;
+      } else {
+          resp = 0;
+      }
 
     } catch (Exception e) {
         System.out.println("Por favor escriba sintaxis Lisp valida!");
@@ -477,23 +477,23 @@ public class Calculos {
     int resp;
 
     try {
-        if (valNum(sta.peek())) {
-            val1 = Double.parseDouble(sta.pop());
-        } else {
-            val1 = hashmap.get(sta.pop());
-        }
+      if (valNum(sta.peek())) {
+          val1 = Double.parseDouble(sta.pop());
+      } else {
+          val1 = hashmap.get(sta.pop());
+      }
 
-        if (valNum(sta.peek())) {
-            val2 = Double.parseDouble(sta.pop());
-        } else {
-            val2 = hashmap.get(sta.pop());
-        }
+      if (valNum(sta.peek())) {
+          val2 = Double.parseDouble(sta.pop());
+      } else {
+          val2 = hashmap.get(sta.pop());
+      }
 
-        if (val1 == val2) {
-            resp = 1;
-        } else {
-            resp = 0;
-        }
+      if (val1 == val2) {
+          resp = 1;
+      } else {
+          resp = 0;
+      }
 
     } catch (Exception e) {
         System.out.println("Por favor escriba sintaxis Lisp valida!");
@@ -510,25 +510,25 @@ public class Calculos {
     double resp;
 
     try {
-        val1 = Double.parseDouble(sta.pop());
+      val1 = Double.parseDouble(sta.pop());
 
-        if (valNum(sta.peek())) {
-            val2 = Double.parseDouble(sta.pop());
-        } else {
-            val2 = hashmap.get(sta.pop());
-        }
+      if (valNum(sta.peek())) {
+          val2 = Double.parseDouble(sta.pop());
+      } else {
+          val2 = hashmap.get(sta.pop());
+      }
 
-        if (valNum(sta.peek())) {
-            val3 = Double.parseDouble(sta.pop());
-        } else {
-            val3 = hashmap.get(sta.pop());
-        }
+      if (valNum(sta.peek())) {
+          val3 = Double.parseDouble(sta.pop());
+      } else {
+          val3 = hashmap.get(sta.pop());
+      }
 
-        if (val1 == 1) {
-            resp = val2;
-        } else {
-            resp = val3;
-        }
+      if (val1 == 1) {
+          resp = val2;
+      } else {
+          resp = val3;
+      }
 
     } catch (Exception e) {
         System.out.println("Por favor escriba sintaxis Lisp valida!");
@@ -539,19 +539,19 @@ public class Calculos {
 // Metodo que realiza el calculo de raiz cuadrada
   public double raizCuadrada(Stack<String> sta) {
 
-    double resp;
+  	double resp;
     double val;
 
     try {
-        if (valNum(sta.peek())) {
-            val = Double.parseDouble(sta.pop());
-        } else {
-            val = hashmap.get(sta.pop());
-        }
-        resp = Math.sqrt(val);
+      if (valNum(sta.peek())) {
+          val = Double.parseDouble(sta.pop());
+      } else {
+          val = hashmap.get(sta.pop());
+      }
+      resp = Math.sqrt(val);
 
     } catch (Exception e) {
-        System.out.println("Por favor escriba sintaxis Lisp valida!");
+      	System.out.println("Por favor escriba sintaxis Lisp valida!");
     }
     return resp;
   }
@@ -561,13 +561,13 @@ public class Calculos {
 		double val;
 
 		try {
-				String txt = sta.pop();
+			String txt = sta.pop();
 
-				if (sta.size() == 1) {
+			if (sta.size() == 1) {
 
-						val = Double.parseDouble(sta.pop());
-						hashmap.put(txt, val);
-				}
+				val = Double.parseDouble(sta.pop());
+				hashmap.put(txt, val);
+			}
 		} catch (Exception e) {
 				System.out.println("Por favor escriba sintaxis Lisp valida!");
 		}
