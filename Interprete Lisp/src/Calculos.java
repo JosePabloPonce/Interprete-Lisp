@@ -557,20 +557,22 @@ public class Calculos {
   }
 
 // Metodo que realiza la funcion de set
-	public double metodoSet(Stack<String> sta) {
+	public double set(Stack<String> sta) {
 
 		double val;
 
-		try {
+		try{
 			String txt = sta.pop();
 
-			if (sta.size() == 1) {
+			if(sta.size() == 1){
 				val = Double.parseDouble(sta.pop());
 				hashmap.put(txt, val);
 			}
-		} catch (Exception e) {
-				System.out.println("Por favor escriba sintaxis Lisp valida!");
+
+		} catch (Exception e){
+			System.out.println("Por favor escriba sintaxis Lisp valida!");
 		}
 		return val;
+
 	}
 }
