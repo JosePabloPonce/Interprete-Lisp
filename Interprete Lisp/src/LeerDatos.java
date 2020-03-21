@@ -10,10 +10,6 @@ import java.util.StringTokenizer;
 public class LeerDatos {
 
 
-	    Calculos operaciones = new Calculos();
-	    public static ArrayList<ArrayList<String>> principal = new ArrayList<ArrayList<String>>();
-	    public static ArrayList<ArrayList<String>> auxiliar = new ArrayList<ArrayList<String>>();
-
 	    Validacion validar = new Validacion();
 	    private boolean valido = false;
 		
@@ -49,11 +45,11 @@ public class LeerDatos {
 
 	 
 	    
-	    public String importText() {
+	    public String importText(String texto) {
 			String lisp = " ";
 			 
 			try{
-	            FileInputStream doc = new FileInputStream(System.getProperty("user.dir")+ "\\src\\numeros1.txt");
+	            FileInputStream doc = new FileInputStream(System.getProperty("user.dir")+ "\\"+texto);
 	            DataInputStream ent = new DataInputStream(doc);
 	            BufferedReader buffer = new BufferedReader(new InputStreamReader(ent));
 	            String strLinea;
@@ -73,13 +69,13 @@ public class LeerDatos {
 	    
 	    
 	    public Stack<String> leeryejecutar(String string) throws IOException {
-	        String newString = string;
+	        String NuevoString = string;
 	        Stack<String> stack = new Stack<String>();
 
-	        newString = newString.replace("(", " ( ");
-	        newString = newString.replace(")", " ) ");
+	        NuevoString = NuevoString.replace("(", " ( ");
+	        NuevoString = NuevoString.replace(")", " ) ");
 
-	        StringTokenizer st = new StringTokenizer(newString, " ");
+	        StringTokenizer st = new StringTokenizer(NuevoString, " ");
 	        
 	        boolean isQuote = false;
 	      
@@ -148,6 +144,7 @@ public class LeerDatos {
 	    
 	    
 	}
+
 
 
 
