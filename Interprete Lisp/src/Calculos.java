@@ -326,20 +326,20 @@ public class Calculos {
 	}
 	
 	public double Suma(Stack<String> StackLinea) {
-        double answer = 0;
+        double resultado = 0;
         try {
             while (!StackLinea.isEmpty()) {
                 if (ComprobarNumero(StackLinea.peek())) {
                     double variable = Double.parseDouble(StackLinea.pop());
-                    answer = answer + variable;
+                    resultado = resultado + variable;
                 } else {
                     if(auxiliar.isEmpty()) {
                         double variable = hashmap.get(StackLinea.pop());
-                        answer = answer + variable;
+                        resultado = resultado + variable;
                     }
                     else {
                         double variable = auxiliar.get(StackLinea.peek());
-                        answer = answer + variable;
+                        resultado = resultado + variable;
                         auxiliar.remove(StackLinea.pop());
                     }
                 }
@@ -349,40 +349,40 @@ public class Calculos {
         }
 
        
-        return answer;
+        return resultado;
     }
 
     public double Resta(Stack<String> StackLinea) {
-        double answer = 0;
+        double resultado = 0;
         try {
             if (ComprobarNumero(StackLinea.peek())) {
-                answer = Double.parseDouble(StackLinea.pop());
+                resultado = Double.parseDouble(StackLinea.pop());
             } else {
                 if(auxiliar.isEmpty()) {
-                    answer = hashmap.get(StackLinea.pop());
+                    resultado = hashmap.get(StackLinea.pop());
                 }
                 else {
-                    answer = auxiliar.get(StackLinea.peek());
+                    resultado = auxiliar.get(StackLinea.peek());
                     auxiliar.remove(StackLinea.pop());
                 }
             }
 
             if (StackLinea.isEmpty()) {
-                answer = -answer;
+                resultado = -resultado;
             }
 
             while (!StackLinea.isEmpty()) {
                 if (ComprobarNumero(StackLinea.peek())) {
                     double variable = Double.parseDouble(StackLinea.pop());
-                    answer = answer - variable;
+                    resultado = resultado - variable;
                 } else {
                     if(auxiliar.isEmpty()) {
                         double variable = hashmap.get(StackLinea.pop());
-                        answer = answer - variable;
+                        resultado = resultado - variable;
                     }
                     else {
                         double variable = auxiliar.get(StackLinea.peek());
-                        answer = answer - variable;
+                        resultado = resultado - variable;
                         auxiliar.remove(StackLinea.pop());
                     }
                 }
@@ -391,20 +391,20 @@ public class Calculos {
             System.out.println("Error de Sintaxis");
         }
 
-        return answer;
+        return resultado;
     }
 
     public double Multiplicacion(Stack<String> StackLinea) {
-        double answer = 1;
+        double resultado = 1;
         try {
             if (ComprobarNumero(StackLinea.peek())) {
-                answer = Double.parseDouble(StackLinea.pop());
+                resultado = Double.parseDouble(StackLinea.pop());
             } else {
                 if(auxiliar.isEmpty()) {
-                    answer = hashmap.get(StackLinea.pop());
+                    resultado = hashmap.get(StackLinea.pop());
                 }
                 else {
-                    answer = auxiliar.get(StackLinea.peek());
+                    resultado = auxiliar.get(StackLinea.peek());
                     auxiliar.remove(StackLinea.pop());
                 }
             }
@@ -412,15 +412,15 @@ public class Calculos {
             while (!StackLinea.isEmpty()) {
                 if (ComprobarNumero(StackLinea.peek())) {
                     double variable = Double.parseDouble(StackLinea.pop());
-                    answer = answer * variable;
+                    resultado = resultado * variable;
                 } else {
                     if(auxiliar.isEmpty()) {
                         double variable = hashmap.get(StackLinea.pop());
-                        answer = answer * variable;
+                        resultado = resultado * variable;
                     }
                     else {
                         double variable = auxiliar.get(StackLinea.peek());
-                        answer = answer * variable;
+                        resultado = resultado * variable;
                         auxiliar.remove(StackLinea.pop());
                     }
                 }
@@ -430,21 +430,21 @@ public class Calculos {
         }
 
         //System.out.println(answer);
-        return answer;
+        return resultado;
     }
 
     public double Division(Stack<String> StackLinea) {
 //        String answerString = null;
-        double answer = 1;
+        double resultado = 1;
         try {
             if (ComprobarNumero(StackLinea.peek())) {
-                answer = Double.parseDouble(StackLinea.pop());
+                resultado = Double.parseDouble(StackLinea.pop());
             } else {
                 if(auxiliar.isEmpty()) {
-                    answer = hashmap.get(StackLinea.pop());
+                    resultado = hashmap.get(StackLinea.pop());
                 }
                 else {
-                    answer = auxiliar.get(StackLinea.peek());
+                    resultado = auxiliar.get(StackLinea.peek());
                     auxiliar.remove(StackLinea.pop());
                 }
             }
@@ -452,15 +452,15 @@ public class Calculos {
             while (!StackLinea.isEmpty()) {
                 if (ComprobarNumero(StackLinea.peek())) {
                     double variable = Double.parseDouble(StackLinea.pop());
-                    answer = answer / variable;
+                    resultado = resultado / variable;
                 } else {
                     if(auxiliar.isEmpty()) {
                         double variable = hashmap.get(StackLinea.pop());
-                        answer = answer / variable;
+                        resultado = resultado / variable;
                     }
                     else {
                         double variable = auxiliar.get(StackLinea.peek());
-                        answer = answer / variable;
+                        resultado = resultado / variable;
                         auxiliar.remove(StackLinea.pop());
                     }
                 }
@@ -469,7 +469,7 @@ public class Calculos {
             System.out.println("Error de Sintaxis");
         }
 
-        return answer;
+        return resultado;
     }
 
 // Metodo que revisa si un caracter(es) es numerico
