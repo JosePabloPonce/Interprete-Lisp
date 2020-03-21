@@ -11,8 +11,8 @@ public class LeerDatos {
 
 
 	    Calculos operaciones = new Calculos();
-	    public static ArrayList<ArrayList<String>> twodlist = new ArrayList<ArrayList<String>>();
-	    public static ArrayList<ArrayList<String>> dynamicTwodlist = new ArrayList<ArrayList<String>>();
+	    public static ArrayList<ArrayList<String>> principal = new ArrayList<ArrayList<String>>();
+	    public static ArrayList<ArrayList<String>> auxiliar = new ArrayList<ArrayList<String>>();
 
 	    Validacion validar = new Validacion();
 	    private boolean valido = false;
@@ -53,7 +53,7 @@ public class LeerDatos {
 			String lisp = " ";
 			 
 			try{
-	            FileInputStream doc = new FileInputStream(System.getProperty("user.dir")+ "\\src\\numeros.txt");
+	            FileInputStream doc = new FileInputStream(System.getProperty("user.dir")+ "\\src\\numeros1.txt");
 	            DataInputStream ent = new DataInputStream(doc);
 	            BufferedReader buffer = new BufferedReader(new InputStreamReader(ent));
 	            String strLinea;
@@ -69,15 +69,10 @@ public class LeerDatos {
 			return lisp;
 			}
 	    
-	    public void addRow(ArrayList<String> row) {
-	        twodlist.add(row);
-	    }
 	    
-	    public void dynamicAddRow(ArrayList<String> row) {
-	        dynamicTwodlist.add(row);
-	    }
-
-	    public Stack<String> tokenizer(String string) throws IOException {
+	    
+	    
+	    public Stack<String> leeryejecutar(String string) throws IOException {
 	        String newString = string;
 	        Stack<String> stack = new Stack<String>();
 
@@ -97,14 +92,14 @@ public class LeerDatos {
 	                isQuote = true;
 	       
 	            if (nextString.equals(")") && !isQuote ) {
-	                stack = validar.findCommand(stack);
+	                stack = validar.encontrarparentesis(stack);
 	            }
 	            count++;
 	        }
 	        
 	        if(isQuote) {
 	            stack.pop();
-	            stack = validar.findQuoteCommand(stack);
+	            stack = validar.encontrarq(stack);
 	        }
 	        
 	        
@@ -139,6 +134,7 @@ public class LeerDatos {
 
 	        return stack;
 	    }
+	    
 
 	    public static boolean ComprobarNumero(String linea) {
 	        try {
