@@ -8,92 +8,92 @@ public class Validacion {
     CodigoLisp funcion = new CodigoLisp();
 
     
-    public Stack<String> findCommand(Stack<String> s) throws FileNotFoundException {
+    public Stack<String> encontrarparentesis(Stack<String> s) throws FileNotFoundException {
         stack = s;
-        String newcommand;
-        Stack<String> newStack = new Stack<String>();
-        newcommand = stack.pop();
+        String nuevalinea;
+        Stack<String> nuevostack = new Stack<String>();
+        nuevalinea = stack.pop();
         try {
-            while (!(newcommand = stack.pop()).equals("(")) {
-                newStack.push(newcommand);
+            while (!(nuevalinea = stack.pop()).equals("(")) {
+                nuevostack.push(nuevalinea);
             }
         } catch (Exception e) {
             System.out.println("Error de Sintaxis");
         }
-        findOperation(newStack);
+        encontraroperando(nuevostack);
         
         return stack;
     }
     
-    public Stack<String> findQuoteCommand(Stack<String> s) throws FileNotFoundException {
+    public Stack<String> encontrarq(Stack<String> s) throws FileNotFoundException {
         stack = s;
         Stack<String> quoteStack = new Stack<String>();
         
         while(!stack.isEmpty())
             quoteStack.push(stack.pop());
         quoteStack.pop();
-        findOperation(quoteStack);
+        encontraroperando(quoteStack);
         return stack;
     }
     
     
-    public void findOperation(Stack<String> StackLinea) throws FileNotFoundException {
-        String operation = StackLinea.pop();
+    public void encontraroperando(Stack<String> StackLinea) throws FileNotFoundException {
+        String operacion = StackLinea.pop();
 
-        switch (operation.toLowerCase()) {
+        switch (operacion.toLowerCase()) {
             case "+": 
-                double plusResult = Operaciones.Suma(StackLinea);
-                stack.push(String.valueOf(plusResult));
+                double resultadosuma = Operaciones.Suma(StackLinea);
+                stack.push(String.valueOf(resultadosuma));
                 break;
                 
             case "-": 
-                double minusResult = Operaciones.Resta(StackLinea);
-                stack.push(String.valueOf(minusResult));
+                double resultadoresta = Operaciones.Resta(StackLinea);
+                stack.push(String.valueOf(resultadoresta));
                 break;
                 
             case "*": 
-                double multiplyResult = Operaciones.Multiplicacion(StackLinea);
-                stack.push(String.valueOf(multiplyResult));
+                double resultadomultiplicacion = Operaciones.Multiplicacion(StackLinea);
+                stack.push(String.valueOf(resultadomultiplicacion));
                 break;
                 
             case "/": 
-                double divideResult = Operaciones.Division(StackLinea);
-                stack.push(String.valueOf(divideResult));
+                double resultadodivision = Operaciones.Division(StackLinea);
+                stack.push(String.valueOf(resultadodivision));
                 break;
                 
             case "<": 
-                int lessThanResult = Operaciones.menorQue(StackLinea);
-                stack.push(String.valueOf(lessThanResult));
+                int resultadomenor = Operaciones.menorQue(StackLinea);
+                stack.push(String.valueOf(resultadomenor));
                 break;
                 
             case ">": 
-                int greaterThanResult = Operaciones.mayorQue(StackLinea);
-                stack.push(String.valueOf(greaterThanResult));
+                int resultadomayor = Operaciones.mayorQue(StackLinea);
+                stack.push(String.valueOf(resultadomayor));
                 break;
                 
             case "equal": 
-                int equalToResult = Operaciones.igualA(StackLinea);
-                stack.push(String.valueOf(equalToResult));
+                int resultadoigual = Operaciones.igualA(StackLinea);
+                stack.push(String.valueOf(resultadoigual));
                 break;
                 
             case "<=": 
-                int lessThanEqualToResult = Operaciones.menorOIgualQue(StackLinea);
-                stack.push(String.valueOf(lessThanEqualToResult));
+                int resultadomenoroigual = Operaciones.menorOIgualQue(StackLinea);
+                stack.push(String.valueOf(resultadomenoroigual));
                 break;
                 
             case ">=": 
-                int greaterThanEqualToResult = Operaciones.mayorOIgualQue(StackLinea);
-                stack.push(String.valueOf(greaterThanEqualToResult));
+                int resultadomayoroigual = Operaciones.mayorOIgualQue(StackLinea);
+                stack.push(String.valueOf(resultadomayoroigual));
                 break;
                 
             case "if": 
-                double ifConditionResult = Operaciones.Condicionif(StackLinea);
-                stack.push(String.valueOf(ifConditionResult));
+                double resultadoif = Operaciones.Condicionif(StackLinea);
+                stack.push(String.valueOf(resultadoif));
                 break;
                 
             case "setq": 
-                double setFunctionResult = Operaciones.set(StackLinea);
-                stack.push(String.valueOf(setFunctionResult));
+                double resultadosetq = Operaciones.set(StackLinea);
+                stack.push(String.valueOf(resultadosetq));
                 break;
                 
           //  case "defun": 
@@ -107,8 +107,8 @@ public class Validacion {
            //     break;
                 
             case "quote": 
-                String dynamicLambdaResult = Operaciones.quote(StackLinea);
-                stack.push(String.valueOf(dynamicLambdaResult));
+                String resultadoquote = Operaciones.quote(StackLinea);
+                stack.push(String.valueOf(resultadoquote));
                 break;
               
             case "cond":
