@@ -97,13 +97,13 @@ public class Validacion {
                 break;
                 
           //  case "defun": 
-          //      String quoteResult = funcion.defun(StackLinea);
-          //      stack.push(String.valueOf(quoteResult));
+          //      String ResultadoDefun = funcion.defun(StackLinea);
+          //      stack.push(String.valueOf(ResultadoDefun));
           //      break;
                 
          //   case "fact": 
-          //      String lambdaResult = Operaciones.fact(StackLinea);
-           //     stack.push(String.valueOf(lambdaResult));
+          //      String Resultadofact = Operaciones.fact(StackLinea);
+           //     stack.push(String.valueOf(Resultadofact));
            //     break;
                 
             case "quote": 
