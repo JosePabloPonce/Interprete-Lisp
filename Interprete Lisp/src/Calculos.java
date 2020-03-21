@@ -1,10 +1,19 @@
+/**
+ * Programa para ejecutar interprete lisp
+ * @author Jose Pablo Ponce 19092, Gabriel Quiroz 19255, Oscar Paredez 19109
+ * @version 20/03/2020
+ */
+
 import java.util.*;
 
 //funcion para hacer los calculos aritmeticos
 public class Calculos {
 
+
 	//arrraylists y hashmaps para guardar variables con dos o mas numeros para operar o solo uno por separado
 	ArrayList<String> calculounavariable = new ArrayList<String>();
+
+
 
 	HashMap<String, Double> hashmap = new HashMap<String, Double>();
 	public static HashMap<String, Double> auxiliar = new HashMap<String, Double>();
@@ -21,7 +30,14 @@ public class Calculos {
 
 	public void setCalculounavariable(ArrayList<String> calculounavariable) {
 		this.calculounavariable = calculounavariable;
-	}
+    }
+    
+
+    /**
+     * metodo para encontrar la operacion que se realizara
+     * @param funcion funcion leida anteriormente
+     * @return depende de calculo encontrado
+     */
 
 	//funcion que recorre el arraylist y opera todos los casos donde encuentre dos numeros
 	public void realizaroperacionesdosvariables (ArrayList <String> funcion) {
@@ -192,7 +208,11 @@ public class Calculos {
 		}
 	}
 
-
+     /**
+     * metodo para encontrar la operacion que se realizara
+     * @param funcion funcion leida anteriormetne
+     * @return depende del operando encontrado
+     */
 	//funcion que realiza las operaciones de todos los casos donde hay una variable
 	public Double realizaroperacionesunavariable (ArrayList <String> funcion) {
 
@@ -324,7 +344,11 @@ public class Calculos {
 		return resultadocalculosperaciones2;
 
 	}
-	
+	/**
+     * metodo para operacion suma
+     * @param StackLinea Codigo Lisp
+     * @return resultado operacion
+     */
 	public double Suma(Stack<String> StackLinea) {
         double resultado = 0;
         try {
@@ -352,6 +376,11 @@ public class Calculos {
         return resultado;
     }
 
+    /**
+     * metodo para operacion resta
+     * @param StackLinea Codigo Lisp
+     * @return resultado operacion
+     */
     public double Resta(Stack<String> StackLinea) {
         double resultado = 0;
         try {
@@ -393,7 +422,11 @@ public class Calculos {
 
         return resultado;
     }
-
+	/**
+     * metodo para operacion multiplicacion
+     * @param StackLinea Codigo Lisp
+     * @return resultado operacion
+     */
     public double Multiplicacion(Stack<String> StackLinea) {
         double resultado = 1;
         try {
@@ -429,12 +462,16 @@ public class Calculos {
             System.out.println("Error de Sintaxis");
         }
 
-        //System.out.println(answer);
         return resultado;
     }
 
+    /**
+     * metodo para operacion division
+     * @param StackLinea Codigo Lisp
+     * @return resultado operacion
+     */
+
     public double Division(Stack<String> StackLinea) {
-//        String answerString = null;
         double resultado = 1;
         try {
             if (ComprobarNumero(StackLinea.peek())) {
@@ -482,6 +519,11 @@ public class Calculos {
     }
   }
 
+  	/**
+     * metodo para operacion mayorque
+     * @param StackLinea Codigo Lisp
+     * @return resultado operacion
+     */
 // Metodo que realiza la comparacion si un numero es mayor a otro
   public int mayorQue(Stack<String> sta) {
 
@@ -514,6 +556,11 @@ public class Calculos {
     return resp;
   }
 
+  	/**
+     * metodo para operacion menorque
+     * @param Sta Codigo Lisp
+     * @return resultado operacion
+     */
 // Metodo que realiza la comparacion si un numero es menor a otro
   public int menorQue(Stack<String> sta) {
 
@@ -546,6 +593,11 @@ public class Calculos {
     return resp;
   }
 
+    /**
+     * metodo para operacion mayoroigualque
+     * @param Sta Codigo Lisp
+     * @return resultado operacion
+     */
 // Metodo que realiza la comparacion si un numero es mayor o igual a otro
   public int mayorOIgualQue(Stack<String> sta) {
 
@@ -578,6 +630,11 @@ public class Calculos {
     return resp;
   }
 
+  	/**
+     * metodo para operacion menoroigualque
+     * @param Sta Codigo Lisp
+     * @return resultado operacion
+     */
 // Metodo que realiza la comparacion si un numero es menor o igual a otro
   public int menorOIgualQue(Stack<String> sta) {
 
@@ -611,6 +668,11 @@ public class Calculos {
   }
 
 
+    /**
+     * metodo para operacion iguala
+     * @param Sta Codigo Lisp
+     * @return resultado operacion
+     */
 // Metodo que realiza la comparacion si un numero es igual a otro
   public int igualA(Stack<String> sta) {
 
@@ -643,6 +705,11 @@ public class Calculos {
     return resp;
   }
 
+    	/**
+     * metodo para operacion condicionif
+     * @param Sta Codigo Lisp
+     * @return resultado operacion
+     */
 // Metodo que simula una condicion if
   public double Condicionif(Stack<String> sta) {
 
@@ -677,6 +744,12 @@ public class Calculos {
     }
     return resp;
   }
+
+    /**
+     * metodo para operacion raizcuadrada
+     * @param Sta Codigo Lisp
+     * @return resultado operacion
+     */
 
 // Metodo que realiza el calculo de raiz cuadrada
   public double raizCuadrada(Stack<String> sta) {
@@ -716,8 +789,14 @@ public class Calculos {
 		}
 		return val;
 
-	}
-	
+    }
+    
+    
+	 /**
+     * metodo para operacion quote
+     * @param Sta Codigo Lisp
+     * @return resultado operacion
+     */
 	public String quote(Stack<String> StackLinea) {
         String quote = "";
         
