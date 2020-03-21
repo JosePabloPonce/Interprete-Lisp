@@ -3,7 +3,7 @@ import java.util.*;
 //funcion para hacer los calculos aritmeticos
 public class Calculos {
 
-	//arrraylists para guardar variables con dos o mas numeros para operar o solo uno por separado
+	//arrraylists y hashmaps para guardar variables con dos o mas numeros para operar o solo uno por separado
 	ArrayList<String> calculounavariable = new ArrayList<String>();
 
 	HashMap<String, Double> hashmap = new HashMap<String, Double>();
