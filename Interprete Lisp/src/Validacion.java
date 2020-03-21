@@ -1,3 +1,10 @@
+/**
+ * Programa para ejecutar interprete lisp
+ * @author Jose Pablo Ponce 19092, Gabriel Quiroz 19255, Oscar Paredez 19109
+ * @version 20/03/2020
+ */
+
+ 
 import java.io.FileNotFoundException;
 import java.util.Stack;
 
@@ -7,7 +14,11 @@ public class Validacion {
     Calculos Operaciones = new Calculos();
     CodigoLisp funcion = new CodigoLisp();
 
-    
+    /**
+     * funcion para buscar el parentesis entre todas las funciones
+     * @param s codigo ingresado por el usuario
+     * @return stack
+     */
     public Stack<String> encontrarparentesis(Stack<String> s) throws FileNotFoundException {
         stack = s;
         String nuevalinea;
@@ -25,6 +36,11 @@ public class Validacion {
         return stack;
     }
     
+    /**
+     * metodo para buscar funcion quote
+     * @param s Linea ingresada por el usuario
+     * @return valor resultante de la evaluación
+     */
     public Stack<String> encontrarq(Stack<String> s) throws FileNotFoundException {
         stack = s;
         Stack<String> quoteStack = new Stack<String>();
@@ -36,7 +52,12 @@ public class Validacion {
         return stack;
     }
     
-    
+
+     /**
+     * metodo para encontrar la operacion que se realizara
+     * @param StackLinea Linea ingresada por el usuario
+     * @return depende del operando encontrado
+     */
     public void encontraroperando(Stack<String> StackLinea) throws FileNotFoundException {
         String operacion = StackLinea.pop();
 
