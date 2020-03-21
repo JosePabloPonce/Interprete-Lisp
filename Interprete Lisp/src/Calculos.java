@@ -1,8 +1,3 @@
-import java.util.ArrayList;
-import java.util.NoSuchElementException;
-import java.util.StringTokenizer;
-package LispInterpreterPackage;
-import java.io.FileNotFoundException;
 import java.util.*;
 
 //funcion para hacer los calculos aritmeticos
@@ -12,7 +7,7 @@ public class Calculos {
 	ArrayList<String> calculounavariable = new ArrayList<String>();
 
 	HashMap<String, Double> hashmap = new HashMap<String, Double>();
-	public static HashMap<String, Double> hashDinam = new HashMap<String, Double>();
+	public static HashMap<String, Double> auxiliar = new HashMap<String, Double>();
 
 	//resultado final de operaciones aritmeticas
 	double resultadocalculosperaciones;
@@ -329,9 +324,156 @@ public class Calculos {
 		return resultadocalculosperaciones2;
 
 	}
+	
+	public double Suma(Stack<String> StackLinea) {
+        double answer = 0;
+        try {
+            while (!StackLinea.isEmpty()) {
+                if (ComprobarNumero(StackLinea.peek())) {
+                    double variable = Double.parseDouble(StackLinea.pop());
+                    answer = answer + variable;
+                } else {
+                    if(auxiliar.isEmpty()) {
+                        double variable = hashmap.get(StackLinea.pop());
+                        answer = answer + variable;
+                    }
+                    else {
+                        double variable = auxiliar.get(StackLinea.peek());
+                        answer = answer + variable;
+                        auxiliar.remove(StackLinea.pop());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error de Sintaxis");                                
+        }
+
+       
+        return answer;
+    }
+
+    public double Resta(Stack<String> StackLinea) {
+        double answer = 0;
+        try {
+            if (ComprobarNumero(StackLinea.peek())) {
+                answer = Double.parseDouble(StackLinea.pop());
+            } else {
+                if(auxiliar.isEmpty()) {
+                    answer = hashmap.get(StackLinea.pop());
+                }
+                else {
+                    answer = auxiliar.get(StackLinea.peek());
+                    auxiliar.remove(StackLinea.pop());
+                }
+            }
+
+            if (StackLinea.isEmpty()) {
+                answer = -answer;
+            }
+
+            while (!StackLinea.isEmpty()) {
+                if (ComprobarNumero(StackLinea.peek())) {
+                    double variable = Double.parseDouble(StackLinea.pop());
+                    answer = answer - variable;
+                } else {
+                    if(auxiliar.isEmpty()) {
+                        double variable = hashmap.get(StackLinea.pop());
+                        answer = answer - variable;
+                    }
+                    else {
+                        double variable = auxiliar.get(StackLinea.peek());
+                        answer = answer - variable;
+                        auxiliar.remove(StackLinea.pop());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error de Sintaxis");
+        }
+
+        return answer;
+    }
+
+    public double Multiplicacion(Stack<String> StackLinea) {
+        double answer = 1;
+        try {
+            if (ComprobarNumero(StackLinea.peek())) {
+                answer = Double.parseDouble(StackLinea.pop());
+            } else {
+                if(auxiliar.isEmpty()) {
+                    answer = hashmap.get(StackLinea.pop());
+                }
+                else {
+                    answer = auxiliar.get(StackLinea.peek());
+                    auxiliar.remove(StackLinea.pop());
+                }
+            }
+
+            while (!StackLinea.isEmpty()) {
+                if (ComprobarNumero(StackLinea.peek())) {
+                    double variable = Double.parseDouble(StackLinea.pop());
+                    answer = answer * variable;
+                } else {
+                    if(auxiliar.isEmpty()) {
+                        double variable = hashmap.get(StackLinea.pop());
+                        answer = answer * variable;
+                    }
+                    else {
+                        double variable = auxiliar.get(StackLinea.peek());
+                        answer = answer * variable;
+                        auxiliar.remove(StackLinea.pop());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error de Sintaxis");
+        }
+
+        //System.out.println(answer);
+        return answer;
+    }
+
+    public double Division(Stack<String> StackLinea) {
+//        String answerString = null;
+        double answer = 1;
+        try {
+            if (ComprobarNumero(StackLinea.peek())) {
+                answer = Double.parseDouble(StackLinea.pop());
+            } else {
+                if(auxiliar.isEmpty()) {
+                    answer = hashmap.get(StackLinea.pop());
+                }
+                else {
+                    answer = auxiliar.get(StackLinea.peek());
+                    auxiliar.remove(StackLinea.pop());
+                }
+            }
+
+            while (!StackLinea.isEmpty()) {
+                if (ComprobarNumero(StackLinea.peek())) {
+                    double variable = Double.parseDouble(StackLinea.pop());
+                    answer = answer / variable;
+                } else {
+                    if(auxiliar.isEmpty()) {
+                        double variable = hashmap.get(StackLinea.pop());
+                        answer = answer / variable;
+                    }
+                    else {
+                        double variable = auxiliar.get(StackLinea.peek());
+                        answer = answer / variable;
+                        auxiliar.remove(StackLinea.pop());
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error de Sintaxis");
+        }
+
+        return answer;
+    }
 
 // Metodo que revisa si un caracter(es) es numerico
-  public static boolean valNum(String str) {
+  public static boolean ComprobarNumero(String str) {
     try {
       double d = Double.parseDouble(str);
       return true;
@@ -345,16 +487,16 @@ public class Calculos {
 
     double val1;
     double val2;
-    int resp;
+    int resp = -1;
 
     try {
-      if (valNum(sta.peek())) {
+      if (ComprobarNumero(sta.peek())) {
           val1 = Double.parseDouble(sta.pop());
       } else {
           val1 = hashmap.get(sta.pop());
       }
 
-      if (valNum(sta.peek())) {
+      if (ComprobarNumero(sta.peek())) {
           val2 = Double.parseDouble(sta.pop());
       } else {
           val2 = hashmap.get(sta.pop());
@@ -377,16 +519,16 @@ public class Calculos {
 
     double val1;
     double val2;
-    int resp;
+    int resp = -1;
 
     try {
-    	if (valNum(sta.peek())) {
+    	if (ComprobarNumero(sta.peek())) {
           val1 = Double.parseDouble(sta.pop());
       } else {
           val1 = hashmap.get(sta.pop());
       }
 
-      if (valNum(sta.peek())) {
+      if (ComprobarNumero(sta.peek())) {
           val2 = Double.parseDouble(sta.pop());
       } else {
           val2 = hashmap.get(sta.pop());
@@ -399,7 +541,7 @@ public class Calculos {
       }
 
     } catch (Exception e) {
-        System.out.println("Por favor escriba sintaxis Lisp valida!");
+        System.out.println("Error de Sintaxis");
     }
     return resp;
   }
@@ -409,16 +551,16 @@ public class Calculos {
 
     double val1;
     double val2;
-    int resp;
+    int resp = -1;
 
     try {
-      if (valNum(sta.peek())) {
+      if (ComprobarNumero(sta.peek())) {
           val1 = Double.parseDouble(sta.pop());
       } else {
           val1 = hashmap.get(sta.pop());
       }
 
-      if (valNum(sta.peek())) {
+      if (ComprobarNumero(sta.peek())) {
           val2 = Double.parseDouble(sta.pop());
       } else {
           val2 = hashmap.get(sta.pop());
@@ -431,7 +573,7 @@ public class Calculos {
       }
 
     } catch (Exception e) {
-        System.out.println("Por favor escriba sintaxis Lisp valida!");
+        System.out.println("Error de Sintaxis");
     }
     return resp;
   }
@@ -441,16 +583,16 @@ public class Calculos {
 
     double val1;
     double val2;
-    int resp;
+    int resp = -1;
 
     try {
-      if (valNum(sta.peek())) {
+      if (ComprobarNumero(sta.peek())) {
           val1 = Double.parseDouble(sta.pop());
       } else {
           val1 = hashmap.get(sta.pop());
       }
 
-      if (valNum(sta.peek())) {
+      if (ComprobarNumero(sta.peek())) {
           val2 = Double.parseDouble(sta.pop());
       } else {
           val2 = hashmap.get(sta.pop());
@@ -463,7 +605,7 @@ public class Calculos {
       }
 
     } catch (Exception e) {
-        System.out.println("Por favor escriba sintaxis Lisp valida!");
+        System.out.println("Error de Sintaxis");
     }
     return resp;
   }
@@ -474,16 +616,16 @@ public class Calculos {
 
     double val1;
     double val2;
-    int resp;
+    int resp = -1;
 
     try {
-      if (valNum(sta.peek())) {
+      if (ComprobarNumero(sta.peek())) {
           val1 = Double.parseDouble(sta.pop());
       } else {
           val1 = hashmap.get(sta.pop());
       }
 
-      if (valNum(sta.peek())) {
+      if (ComprobarNumero(sta.peek())) {
           val2 = Double.parseDouble(sta.pop());
       } else {
           val2 = hashmap.get(sta.pop());
@@ -496,29 +638,29 @@ public class Calculos {
       }
 
     } catch (Exception e) {
-        System.out.println("Por favor escriba sintaxis Lisp valida!");
+        System.out.println("Error de Sintaxis");
     }
     return resp;
   }
 
 // Metodo que simula una condicion if
-  public double if(Stack<String> sta) {
+  public double Condicionif(Stack<String> sta) {
 
     double val1;
     double val2;
     double val3;
-    double resp;
+    double resp = -1;
 
     try {
       val1 = Double.parseDouble(sta.pop());
 
-      if (valNum(sta.peek())) {
+      if (ComprobarNumero(sta.peek())) {
           val2 = Double.parseDouble(sta.pop());
       } else {
           val2 = hashmap.get(sta.pop());
       }
 
-      if (valNum(sta.peek())) {
+      if (ComprobarNumero(sta.peek())) {
           val3 = Double.parseDouble(sta.pop());
       } else {
           val3 = hashmap.get(sta.pop());
@@ -531,7 +673,7 @@ public class Calculos {
       }
 
     } catch (Exception e) {
-        System.out.println("Por favor escriba sintaxis Lisp valida!");
+        System.out.println("Error de Sintaxis");
     }
     return resp;
   }
@@ -539,11 +681,11 @@ public class Calculos {
 // Metodo que realiza el calculo de raiz cuadrada
   public double raizCuadrada(Stack<String> sta) {
 
-  	double resp;
+  	double resp = -1;
     double val;
 
     try {
-      if (valNum(sta.peek())) {
+      if (ComprobarNumero(sta.peek())) {
           val = Double.parseDouble(sta.pop());
       } else {
           val = hashmap.get(sta.pop());
@@ -551,7 +693,7 @@ public class Calculos {
       resp = Math.sqrt(val);
 
     } catch (Exception e) {
-      	System.out.println("Por favor escriba sintaxis Lisp valida!");
+      	System.out.println("Error de Sintaxis");
     }
     return resp;
   }
@@ -559,7 +701,7 @@ public class Calculos {
 // Metodo que realiza la funcion de set
 	public double set(Stack<String> sta) {
 
-		double val;
+		double val = -1;
 
 		try{
 			String txt = sta.pop();
@@ -570,9 +712,32 @@ public class Calculos {
 			}
 
 		} catch (Exception e){
-			System.out.println("Por favor escriba sintaxis Lisp valida!");
+			System.out.println("Error de Sintaxis");
 		}
 		return val;
 
 	}
+	
+	public String quote(Stack<String> StackLinea) {
+        String quote = "";
+        
+        while(!StackLinea.isEmpty()) {
+            if(StackLinea.peek().equals("(") && StackLinea.get(StackLinea.size() - 2).equals("quote")) {
+                quote = quote + "' ";
+                StackLinea.pop();
+                StackLinea.pop();
+                StackLinea.remove(0);
+            }
+            else
+                quote = quote + StackLinea.pop() + " ";
+        }
+        
+        quote = quote.replace(" ( ", "(");
+        quote = quote.replace(" ) ", ")");
+        quote = quote.replace("( ", "(");
+        quote = quote.replace(") ", ")");
+                        
+        return quote;
+    }
+    
 }
