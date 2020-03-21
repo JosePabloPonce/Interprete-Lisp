@@ -1,3 +1,10 @@
+**
+ * Programa para ejecutar interprete lisp
+ * @author Jose Pablo Ponce 19092, Gabriel Quiroz 19255, Oscar Paredez 19109
+ * @version 20/03/2020
+ */
+
+
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
@@ -44,7 +51,11 @@ public class LeerDatos {
 		}
 
 	 
-	    
+	/**
+     * metodo para importar el archivo de texto
+     * @param texto almacena la funcion
+     * @return funcion almacenada en String
+     */
 	    public String importText(String texto) {
 			String lisp = " ";
 			 
@@ -67,7 +78,11 @@ public class LeerDatos {
 	    
 	    
 	    
-	    
+	/**
+     * metodo para leer la funcion y ejecutar
+     * @param string  funcion 
+     * @return stack
+     */  
 	    public Stack<String> leeryejecutar(String string) throws IOException {
 	        String NuevoString = string;
 	        Stack<String> stack = new Stack<String>();
@@ -144,6 +159,8 @@ public class LeerDatos {
 	    
 	    
 	}
+
+
 
 
 
